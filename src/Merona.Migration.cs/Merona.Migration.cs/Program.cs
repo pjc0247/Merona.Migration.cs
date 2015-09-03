@@ -32,6 +32,8 @@ namespace Merona.Migration.cs
 
     class Program
     {
+        // TODO 타입 바뀌는것도 체크해야 함
+
         /// <summary>
         /// 두 모델 간의 변경 사항을 찾는다.
         /// </summary>
