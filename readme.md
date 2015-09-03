@@ -1,7 +1,7 @@
 Merona.Migration.cs
 ====
 
-Model ½ºÅ°¸¶ ¸¶ÀÌ±×·¹ÀÌ¼ÇÀ» µµ¿ÍÁÖ´Â ÅøÀÔ´Ï´Ù.<br>
+Model ìŠ¤í‚¤ë§ˆ ë§ˆì´ê·¸ë ˆì´ì…˜ì„ ë„ì™€ì£¼ëŠ” íˆ´ì…ë‹ˆë‹¤.<br>
 
 ```c#
 [OldModels]
@@ -18,13 +18,13 @@ class Models_2015_09_03 {
 class Models_2015_09_04 {
   public class Player : Model {
     public String name {get;set;}
-    // level ÇÁ·ÎÆÛÆ¼´Â »èÁ¦µË´Ï´Ù.
+    // level í”„ë¡œí¼í‹°ëŠ” ì‚­ì œë©ë‹ˆë‹¤.
     public int money {get;set;}
-    // exp ÇÁ·ÎÆÛÆ¼´Â Ãß°¡µË´Ï´Ù.
+    // exp í”„ë¡œí¼í‹°ëŠ” ì¶”ê°€ë©ë‹ˆë‹¤.
     public int exp {get;set;}
   }
 
-  // Log ¸ğµ¨Àº Ãß°¡µË´Ï´Ù.
+  // Log ëª¨ë¸ì€ ì¶”ê°€ë©ë‹ˆë‹¤.
   public class Log : Model {
     public String body {get;set;}
   }
@@ -32,6 +32,6 @@ class Models_2015_09_04 {
 ```
 
 ```c#
-/* DB Á¢¼ÓÁ¤º¸ ¼³Á¤ */
+/* DB ì ‘ì†ì •ë³´ ì„¤ì • */
 Merona.Migration.AutoMigrate();
 ```
