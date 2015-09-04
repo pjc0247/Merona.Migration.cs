@@ -55,11 +55,19 @@ namespace Merona.Migration.cs
                         where
                           !(from oldProp in oldProps
                             select oldProp.Name).Contains(toProp.Name)
+                            ||
+                           !(from oldProp in oldProps
+                             where toProp.Name == oldProp.Name
+                             select oldProp.PropertyType).First().IsEquivalentTo(toProp.PropertyType)
                         select toProp;
             var removed = from oldProp in oldProps
                           where
                             !(from toProp in toProps
-                              select toProp.Name).Contains(oldProp.Name)
+                             select toProp.Name).Contains(oldProp.Name)
+                             ||
+                            !(from toProp in toProps
+                              where toProp.Name == oldProp.Name
+                              select toProp.PropertyType).First().IsEquivalentTo (oldProp.PropertyType)
                           select oldProp;
 
             foreach (var prop in mutual)
