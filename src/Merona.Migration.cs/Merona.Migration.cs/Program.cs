@@ -112,6 +112,22 @@ namespace Merona.Migration
                           select new ModelPair { old = oldModel };
         }
         
+        public static void Config(String databaseName)
+        {
+            var mongo = new MongoClient();
+            database = mongo.GetDatabase(databaseName);
+        }
+        public static void Config(MongoClientSettings setting, String databaseName)
+        {
+            var mongo = new MongoClient(setting);
+            database = mongo.GetDatabase(databaseName);
+        }
+        public static void Config(String connectionString, String databaseName)
+        {
+            var mongo = new MongoClient(connectionString);
+            database = mongo.GetDatabase(databaseName);
+        }
+
         /// <summary>
         /// 변경된 모델에 대해 자동 마이그레이션을 수행한다.
         /// </summary>
