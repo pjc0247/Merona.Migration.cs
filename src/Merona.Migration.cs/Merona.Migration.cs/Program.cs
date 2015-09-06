@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization;
 
-namespace Merona.Migration.cs
+namespace Merona.Migration
 {
     /// <summary>
     /// 이전 모델들을 담고 있는 클래스임을 나타내는 속성입니다.
@@ -31,7 +31,6 @@ namespace Merona.Migration.cs
         {
         }
     }
-
 
     class Program
     {
@@ -110,6 +109,7 @@ namespace Merona.Migration.cs
 
         static void Main(string[] args)
         {
+
         }
     }
 }
