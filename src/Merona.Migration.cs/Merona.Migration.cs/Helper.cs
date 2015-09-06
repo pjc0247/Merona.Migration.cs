@@ -165,6 +165,32 @@ namespace Merona.Migration
                             new BsonDocument(),
                             Builders<BsonDocument>.Update.Unset(prop.old.Name));
                 }
+
+                Console.WriteLine("    Modify indexes");
+                foreach(var prop in mutual)
+                {
+                    // 인덱스 삭제됨
+                    if (prop.old.GetCustomAttribute<Model.Index>() != null &&
+                        prop.to.GetCustomAttribute<Model.Index>() == null)
+                    {
+                        Console.WriteLine("      remove : {0}", prop.old.Name);
+
+                        // TODO : Descending
+                        await database.GetCollection<BsonDocument>(pair.old.Name)
+                            .Indexes.DropOneAsync(prop.old.Name + "_1");
+                    }
+
+                    // 인덱스 추가됨
+                    if (prop.old.GetCustomAttribute<Model.Index>() == null &&
+                        prop.to.GetCustomAttribute<Model.Index>() != null)
+                    {
+                        Console.WriteLine("      create : {0}", prop.old.Name);
+
+                        await database.GetCollection<BsonDocument>(pair.old.Name)
+                            .Indexes.CreateOneAsync(
+                                Builders<BsonDocument>.IndexKeys.Ascending(prop.old.Name));
+                    }
+                }
             }
         }
 

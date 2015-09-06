@@ -73,9 +73,9 @@ namespace Merona.Migration
     {
         public class Player : Model
         {
-            [Index]
             public String name { get; set; }
 
+            [Index]
             public int level { get; set; }
             public int gold { get; set; }
         }
