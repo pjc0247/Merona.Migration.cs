@@ -17,6 +17,8 @@ class Models_2015_09_03 {
 [NewModels]
 class Models_2015_09_04 {
   public class Player : Model {
+    // name에는 인덱스가 추가됩니다.
+    [Index]
     public String name {get;set;}
     // level 프로퍼티는 삭제됩니다.
     public int money {get;set;}
