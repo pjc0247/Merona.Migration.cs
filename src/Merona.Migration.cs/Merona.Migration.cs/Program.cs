@@ -133,7 +133,8 @@ namespace Merona.Migration
         /// </summary>
         public static void AutoMigrate()
         {
-            database = new MongoClient().GetDatabase("test");
+            if (database == null)
+                throw new InvalidOperationException();
 
             var types = Assembly.GetEntryAssembly().GetTypes();
 
