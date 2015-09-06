@@ -32,11 +32,36 @@ namespace Merona.Migration
         internal protected class Index : Attribute
         {
         }
+
+        /// <summary>
+        /// 새로 추가된 프로퍼티일 때 기본값을 지정한다.
+        /// 이 필드는 앞으로 추가될 Document에 대해서는 영향을 미치지 않는다.
+        /// </summary>
+        internal protected class Default : Attribute
+        {
+            internal object value { get; set; }
+
+            public Default(object value)
+            {
+                this.value = value;
+            }
+        }
     }
 
     [OldModels]
     public class Models_2015_0
     {
+        public class Player : Model
+        {
+            [Index]
+            public String name { get; set; }
+
+            public int level { get; set; }
+            public int gold { get; set; }
+
+            public int jinwoo { get; set; }
+        }
+
         public class Jinwoo : Model
         {
             [Index]
