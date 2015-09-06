@@ -111,7 +111,10 @@ namespace Merona.Migration
                               select toModel.Name).Contains(oldModel.Name)
                           select new ModelPair { old = oldModel };
         }
-
+        
+        /// <summary>
+        /// 변경된 모델에 대해 자동 마이그레이션을 수행한다.
+        /// </summary>
         public static void AutoMigrate()
         {
             database = new MongoClient().GetDatabase("test");
