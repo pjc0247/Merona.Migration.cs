@@ -155,6 +155,16 @@ namespace Merona.Migration
                 FindDiffProps(
                     pair.old, pair.to,
                     out mutual, out added, out removed);
+
+                Console.WriteLine("    Remove fields");
+                foreach(var prop in removed)
+                {
+                    Console.WriteLine("      {0}", prop.old.Name);
+                    database.GetCollection<BsonDocument>(pair.old.Name)
+                        .UpdateManyAsync(
+                            new BsonDocument(),
+                            Builders<BsonDocument>.Update.Unset(prop.old.Name));
+                }
             }
         }
 
