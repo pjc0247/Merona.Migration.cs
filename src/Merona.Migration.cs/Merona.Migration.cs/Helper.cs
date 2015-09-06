@@ -175,7 +175,7 @@ namespace Merona.Migration
                               select prop;
 
                 Console.WriteLine("    Create indexes....");
-                foreach (var prop in props)
+                foreach (var prop in indexes)
                 {
                     Console.WriteLine("      field : {0}", prop.Name);
                     await database.GetCollection<BsonDocument>(pair.to.Name)
