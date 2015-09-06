@@ -35,5 +35,5 @@ class Models_2015_09_04 {
 
 ```c#
 /* DB 접속정보 설정 */
-Merona.Migration.AutoMigrate();
+Merona.Migration.Helper.AutoMigrate();
 ```
