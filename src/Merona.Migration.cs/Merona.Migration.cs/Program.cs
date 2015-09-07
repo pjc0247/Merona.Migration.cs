@@ -31,6 +31,10 @@ namespace Merona.Migration
         /// </summary>
         internal protected class Index : Attribute
         {
+            public String name { get; set; }
+            public String[] with { get; set; }
+            public bool ascending { get; set; }
+            public bool unique { get; set; }
         }
 
         /// <summary>
@@ -75,7 +79,7 @@ namespace Merona.Migration
         {
             public String name { get; set; }
 
-            [Index]
+            [Index]            
             public int level { get; set; }
             public int gold { get; set; }
         }
