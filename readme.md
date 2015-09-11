@@ -5,7 +5,7 @@ Model 스키마 마이그레이션을 도와주는 툴입니다.<br>
 
 Installation
 ----
-* __Nuget__
+* __Nuget__<br>
   https://www.nuget.org/packages/Merona.Migration.cs/1.0.0
 
 Usage
